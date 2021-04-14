@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
 import useHotKey  from 'hooks/hotKey'
-import { AnimateSharedLayout } from "framer-motion";
+// import { AnimateSharedLayout } from "framer-motion";
 import { useTheme } from "next-themes"
 
 //Components
-import Nav from "./Nav/nav";
+import Nav from "./nav/nav";
 import Modal from './UX/Modal/Modal'
 
 const Layout = ({ children, categories, seo }) => {

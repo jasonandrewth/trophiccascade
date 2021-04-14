@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react"
 import { motion } from 'framer-motion'
 
 //components
-import Card from "../card/card";
+import Card from "../Card/Card";
 
 //styles
 import styles from './articles.module.scss'
