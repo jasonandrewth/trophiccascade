@@ -1,6 +1,6 @@
 import { fetchAPI } from "lib/api";
 import lunr from 'lunr'
-import Card from "components/Card/Card";
+import Card from "components/card/card";
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
