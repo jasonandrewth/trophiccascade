@@ -5,7 +5,7 @@ import Seo from "components/seo";
 
 import { motion } from 'framer-motion'
 
-import SyllabusLinks from "components/SyllabusLinks/SyllabusLinks";
+import SyllabusLinks from "components/syllabusLinks/syllabusLinks";
 
 import styles from '../styles/syllabus.module.scss'
 

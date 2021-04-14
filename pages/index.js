@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-import Articles from "components/Articles/articles";
+import Articles from "components/articles/articles";
 import Layout from "components/layout";
 import Seo from "components/seo";
 
