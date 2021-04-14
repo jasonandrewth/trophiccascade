@@ -360,17 +360,37 @@ const Vis = ({ article }) => {
       frameId = window.requestAnimationFrame(animate)
     }
 
+    const start = () => {
+      if (!frameId) {
+        frameId = requestAnimationFrame(animate)
+      }
+    }
+
+    const stop = () => {
+      cancelAnimationFrame(frameId)
+      frameId = null
+    }
 
     //SETUP
     mount.current.appendChild(renderer.domElement)
     window.addEventListener('resize', handleResize)
-    animate()
+    start()
     handleResize()
-
-    //controls.current = { start, stop }
+    // console.log(mount.current)
     
     return () => {
-      material
+      stop()
+      window.removeEventListener('resize', handleResize)
+      if (mount.current) {
+        mount.current.removeChild(renderer.domElement)
+      }
+      
+      console.log(mount)
+      
+
+      scene.remove(plane)
+      geometry.dispose()
+      material.dispose()
     }
   }, [])
 

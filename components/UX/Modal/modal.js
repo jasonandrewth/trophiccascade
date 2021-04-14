@@ -14,7 +14,7 @@ const Modal = ({ setMenuState, menuState, theme, setTheme }) => {
   let modalClasses = [styles.Modal, "bg-white dark:bg-black dark:text-white"]
 
   const switchTheme = () => {
-    console.log('hi')
+    // console.log('hi')
     setTheme(theme === "light" ? "dark" : "light");
   };
 

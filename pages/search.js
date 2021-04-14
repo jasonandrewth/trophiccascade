@@ -71,7 +71,7 @@ const ReactSearchLunr = ({articles}) => {
        >
          <h1>Search</h1>
          <div className={searchFormClasses.join(' ')}>
-           <input className={styles.searchInput} onChange={handleChange} value={filter} />
+           <input type="text" className={styles.searchInput} onChange={handleChange} value={filter} />
          </div>
         </motion.section>
        <div style={!searching ? {borderTop: '2px solid #e70000'} : {borderTop: 'none'}} >

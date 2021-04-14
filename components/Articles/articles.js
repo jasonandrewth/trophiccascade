@@ -21,11 +21,6 @@ const Articles = ({ articles}) => {
 
   //console.log('hi')
 
-  useEffect(() => {
-    console.log('rendered')
-  }, [])
-  
-
   return (
     <motion.div 
     initial='initial'

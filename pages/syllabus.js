@@ -32,7 +32,7 @@ const about = ({ syllabusLinks, categories }) => {
     const filterArray = type => {
 
     if (filterType === type) {
-      console.log(type)
+      // console.log(type)
     }
 
     const sortProperty = types[type];
@@ -45,7 +45,7 @@ const about = ({ syllabusLinks, categories }) => {
         return link.Category === sortProperty
       }
     });
-    console.log(sorted);
+    // console.log(sorted);
     setData(sorted);
 
     };
@@ -66,7 +66,7 @@ const about = ({ syllabusLinks, categories }) => {
       active.classList.remove('active')
     })
     e.target.classList.add('active')
-    console.log(e.target)
+    // console.log(e.target)
   }
 
 
