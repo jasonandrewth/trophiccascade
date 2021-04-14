@@ -5,7 +5,7 @@ import { useTheme } from "next-themes"
 
 //Components
 import Nav from "./nav/nav";
-import Modal from './UX/Modal/Modal'
+import Modal from './UX/Modal/modal'
 
 const Layout = ({ children, categories, seo }) => {
 

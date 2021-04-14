@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../pages/_app";
 
-import Modal from "../UX/Modal/Modal";
+import Modal from "../UX/Modal/modal";
 
 import styles from './nav.module.scss'
 //import search from '../../public/icon-search.svg'
