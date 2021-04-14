@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 
 import { fetchAPI } from "lib/api";
-import Seo from "components/seo";
+import Seo from "../components/seo";
 
 import { motion } from 'framer-motion'
 
-import SyllabusLinks from "components/SyllabusLinks/SyllabusLinks";
+import SyllabusLinks from "../SyllabusLinks/SyllabusLinks";
 
 import styles from '../styles/syllabus.module.scss'
 

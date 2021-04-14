@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import useHotKey  from 'hooks/hotKey'
+import useHotKey  from '../hooks/hotKey'
 // import { AnimateSharedLayout } from "framer-motion";
 import { useTheme } from "next-themes"
 

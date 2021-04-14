@@ -1,8 +1,8 @@
 import { useEffect } from "react"
 
-import Articles from "components/articles/articles";
-import Layout from "components/layout";
-import Seo from "components/seo";
+import Articles from "../components/articles/articles";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 import { fetchAPI } from "../lib/api";
 

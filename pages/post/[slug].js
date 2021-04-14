@@ -1,9 +1,9 @@
 import ReactMarkdown from "react-markdown";
 import { fetchAPI } from "../../lib/api";
 // import Card from "components/Card/Card";
-import Vis from 'components/WebGL/WebGL'
-import Seo from "components/seo";
-import { getStrapiMedia } from "lib/media";
+import Vis from '../../components/WebGL/WebGL'
+import Seo from "../../components/seo";
+import { getStrapiMedia } from "../../lib/media";
 
 // import Image from 'next/image'
 
