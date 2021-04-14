@@ -1,5 +1,5 @@
 //components
-import SyllabusLink from "../syllabusLink/syllabusLink";
+import SyllabusLink from "../SyllabusLink/SyllabusLink";
 
 const SyllabusLinks = ({ links }) => {
 
