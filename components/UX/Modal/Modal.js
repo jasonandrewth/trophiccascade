@@ -3,7 +3,7 @@ import Link from "next/link";
 import { motion } from 'framer-motion'
 
 //components
-import Backdrop from '../Backdrop/Backdrop'
+import Backdrop from '../Backdrop/backdrop'
 
 //style
 import styles from './Modal.module.scss'

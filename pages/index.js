@@ -1,12 +1,12 @@
-import { useEffect } from "react"
+// import { useEffect } from "react"
 
-import Articles from "../components/articles/articles";
-import Layout from "../components/layout";
+import Articles from "../components/Articles/articles";
+// import Layout from "../components/layout";
 import Seo from "../components/seo";
 
 import { fetchAPI } from "../lib/api";
 
-const Home = ({ articles, homepage, articless}) => {
+const Home = ({ articles, homepage}) => {
 
   return (
     <>
