@@ -1,0 +1,65 @@
+.title {
+  font-size: 3rem;
+  font-family: Wremena Bold, sans-serif;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.content {
+  font-size: 24px;
+  line-height: 1.8rem;
+  font-family: Fivo Sans Regular, sans-serif;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: inherit !important;
+    font-style: italic;
+  }
+
+  iframe {
+    margin: 16px auto;
+    max-width: 100vw;
+  }
+
+  code {
+    color: #e70000;
+    max-width: 100vw;
+  }
+
+  img {
+    margin: 32px auto;
+    max-width: 70%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .title {
+    font-size: 2rem;
+    font-family: Wremena Bold, sans-serif;
+    margin-bottom: 2rem;
+  }
+
+  .content {
+    font-size: 18px;
+    line-height: 1.6rem;
+    font-family: Fivo Sans Regular, sans-serif;
+  
+    h2 {
+      font-size: 20px;
+      margin-bottom: 1rem;
+    }
+  
+    iframe {
+      margin: 32px auto;
+    }
+  
+    img {
+      margin: 32px auto;
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+}

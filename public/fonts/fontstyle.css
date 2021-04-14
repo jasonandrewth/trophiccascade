@@ -1,0 +1,121 @@
+@font-face {
+  font-family: Wremena Regular;
+  src: url(wremena-regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: Wremena Bold;
+  src: url(wremena-bold.woff);
+}
+
+
+@font-face {
+  font-family: 'Fivo Sans Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Regular'), url('FivoSans-Regular.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Oblique';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Oblique'), url('FivoSans-Oblique.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Thin Oblique';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Thin Oblique'), url('FivoSans-Thin-Oblique.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Thin'), url('FivoSans-Thin.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Light Oblique';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Light Oblique'), url('FivoSans-Light-Oblique.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Light'), url('FivoSans-Light.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Medium Oblique';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Medium Oblique'), url('FivoSans-Medium-Oblique.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Medium'), url('FivoSans-Medium.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Bold Oblique';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Bold Oblique'), url('FivoSans-Bold-Oblique.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Bold'), url('FivoSans-Bold.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Black Oblique';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Black Oblique'), url('FivoSans-Black-Oblique.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Black'), url('FivoSans-Black.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Heavy Oblique';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Heavy Oblique'), url('FivoSans-Heavy-Oblique.woff') format('woff');
+  }
+  
+  
+  @font-face {
+  font-family: 'Fivo Sans Heavy';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fivo Sans Heavy'), url('FivoSans-Heavy.woff') format('woff');
+  }

@@ -1,0 +1,107 @@
+.Card {
+  width: 100vw;
+  min-height: 300px;
+  border: 2px solid #e70000;
+  //border-bottom: none;
+  border-top: none; 
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+
+.CardBody {
+  padding: 32px;
+  max-width: 60vw;
+
+  h1 {
+    font-family: Wremena Bold, sans-serif;
+    font-size: 4rem;
+    margin-bottom: 32px;
+  }
+
+  p {
+    font-family: Fivo Sans Bold;
+  }
+
+  .floatingImage {
+    pointer-events: none;
+    width: 24rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    //background-size: cover;
+    //background-position: 50%;
+    z-index: 9999;
+    overflow: hidden;
+    border: 4px solid #e70000;
+  }
+}
+
+
+.Arrow {
+  flex: 1 1 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 15%;
+  //height: 300px;
+  border-left: 2px solid #e70000;
+  transition: all 0.5s;
+
+  p {
+    font-size: 2rem;
+  }
+}
+
+.Card:hover .Arrow {
+  background-color: #e70000;
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .Card {
+    width: 100vw;
+    min-height: auto;
+    border: 2px solid #e70000;
+    //border-bottom: none;
+    border-top: none; 
+    display: flex;
+    justify-content: space-between;
+  
+  }
+
+  .CardBody {
+    padding: 16px;
+    max-width: 80vw;
+  
+    h1 {
+      //font-family: Wremena;
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+  
+    p {
+      font-size: 1rem;
+      font-family: Fivo Sans Bold;
+    }
+  }
+
+  .Arrow {
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    max-width: 20%;
+    //height: 300px;
+    border-left: 2px solid #e70000;
+    transition: all 0.5s;
+  
+    p {
+      font-size: 2rem;
+    }
+  }
+}

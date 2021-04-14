@@ -1,0 +1,109 @@
+@import "./varibles.scss";
+
+.searchTop {
+  position: absolute;
+  display: flex;
+  align-items: baseline;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding-left: 32px;
+  padding-right: 32px;
+  max-width: 80vw;
+  transition: all .5s cubic-bezier(.075,.82,.165,1);
+  z-index: 1;
+  user-select: none;
+
+  .searchForm {
+    position: relative;
+    top: -.5vw;
+    left: 1.5vw;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  .searchInput {
+    border: 0;
+    border-bottom: 1px solid $red;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Fivo Sans Bold, sans-serif;
+    font-size: 3rem;
+    letter-spacing: -.1rem;
+    font-weight: 400;
+    line-height: .9;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+.searchTop.searching {
+  transform: translate(-50%,-50%) scale(.7);
+  position: relative;
+}
+
+
+@media (max-width: 640px) {
+  .searchTop {
+    position: absolute;
+    display: flex;
+    align-items: baseline;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding-left: 32px;
+    padding-right: 32px;
+    max-width: 80vw;
+    transition: all .5s cubic-bezier(.075,.82,.165,1);
+    z-index: 1;
+    user-select: none;
+  
+    .searchForm {
+      position: relative;
+      top: -.5vw;
+      left: 1.5vw;
+      user-select: none;
+    }
+    
+    .searchInput {
+      border: 0;
+      border-bottom: 1px solid $red;
+      outline: none;
+      padding: 0;
+      margin: 0;
+      border-radius: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Fivo Sans Bold, sans-serif;
+      font-size: 2rem;
+      letter-spacing: -.1rem;
+      font-weight: 400;
+      line-height: .9;
+      user-select: none;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .searchTop.searching {
+    transform: translate(-50%,-50%) scale(.7);
+    margin-top: 48px;
+    position: relative;
+  }
+}

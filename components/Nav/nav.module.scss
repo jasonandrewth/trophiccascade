@@ -1,0 +1,94 @@
+.navContainer {
+  position: fixed;
+  width: 100%;
+  font-family: Fivo Sans Bold, sans-serif;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100vw;
+  padding: 16px 64px;
+
+  z-index: 999999999;
+  color:#e70000;
+
+  a {
+    text-decoration: none;
+    color:#e70000;
+  }
+}
+
+.navContainer a {
+  color: #e70000;
+  text-decoration: none;
+}
+
+
+.Logo {
+  font-size: 2rem;
+  padding: 10px;
+  mix-blend-mode: darken;
+}
+
+
+
+
+
+.burgerContainer {
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px;
+  padding-right: 0;
+  box-sizing: border-box;
+
+  .bar1, .bar2 {
+    width: 32px;
+    height: 3px;
+    background-color: #e70000;
+    margin: 12px 0;
+    transition: 0.4s;
+  }
+
+}
+
+
+/* Rotate first bar */
+.change .bar1 {
+  //-webkit-transform: rotate(-45deg) translate(-6px, 6px) ;
+  transform: rotate(-45deg) translate(-6px, 4px) ;
+}
+
+/* Rotate last bar */
+.change .bar2 {
+  //-webkit-transform: rotate(45deg) translate(-8px, -6px) ;
+  transform: rotate(45deg) translate(-6px, -6px) ;
+}
+
+
+@media (max-width: 600px) {
+
+  .navContainer {
+    padding: 16px;
+  }
+
+  .Logo {
+    font-size: 1.5rem;
+    mix-blend-mode: darken;
+  }
+
+  .burgerContainer {
+    padding: 0;
+  }
+}
+
+@media (max-width: 370px) {
+
+  .navContainer {
+    padding: 16px;
+  }
+
+  .Logo {
+    font-size: 1.2rem;
+    mix-blend-mode: darken;
+  }
+}
