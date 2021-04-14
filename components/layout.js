@@ -4,8 +4,8 @@ import useHotKey  from '../hooks/hotKey'
 import { useTheme } from "next-themes"
 
 //Components
-import Nav from "./nav/nav";
-import Modal from './UX/Modal/modal'
+import Nav from "./Nav/nav";
+// import Modal from './UX/Modal/modal'
 
 const Layout = ({ children, categories, seo }) => {
 
