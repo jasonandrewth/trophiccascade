@@ -16,20 +16,15 @@ const MyApp = ({ Component, pageProps }) => {
 
   // console.log(global)
   return (
-    <>
-      <Head>
-        {/* <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} /> */}
-      </Head>
+    <AnimatePresence exitBeforeEnter>
       <GlobalContext.Provider value={global}>
-        <AnimatePresence exitBeforeEnter>
         <ThemeProvider attribute="class">
           <Layout>
           <Component {...pageProps} />
           </Layout>
         </ThemeProvider>
-        </AnimatePresence>
       </GlobalContext.Provider>
-    </>
+    </AnimatePresence>
   );
 };
 

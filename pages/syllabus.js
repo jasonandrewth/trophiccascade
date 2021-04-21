@@ -9,7 +9,27 @@ import SyllabusLinks from "../components/SyllabusLinks/syllabusLinks";
 
 import styles from '../styles/syllabus.module.scss'
 
-const about = ({ syllabusLinks, categories }) => {
+//custom easing
+let easing = [0.6, -0.05, 0.01, 0.99];
+
+// Custom variant
+const fadeInUp = {
+  initial: {
+    y: 60,
+    opacity: 0,
+    transition: { duration: 0.4, ease: easing }
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      ease: easing
+    }
+  }
+};
+
+const Links = ({ syllabusLinks, categories }) => {
 
   const [isMounted, setIsMounted] = useState(false);
   const [data, setData] = useState([]);
@@ -75,14 +95,9 @@ const about = ({ syllabusLinks, categories }) => {
   return (
     <>
     <Seo seo={seo} />
-    <div className={wrapperClasses.join(' ')}>
-      <motion.div 
-        initial={{scale: 0}} 
-        animate={{scale: 1}} 
-        transition={{ delay: 0.2 }}
-        className={'content'}>
+    <motion.div className={wrapperClasses.join(' ')} initial='initial' animate='animate' exit={{ opacity: 0 }}>
+      <motion.div variants={fadeInUp} className={'content'}>
         
-
         <h1 className={styles.title}>
         A Collection of Articles I enjoyed reading and I think are somehow relevant and/or interesting.
         </h1>
@@ -107,16 +122,17 @@ const about = ({ syllabusLinks, categories }) => {
         >
         </SyllabusLinks>
       </motion.div>
-    </div>
+    </motion.div>
     </>
   )
 }
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const syllabusLinks = await fetchAPI("/syllabus-links");
+  const syllabusLinkss = await fetchAPI("/syllabus-links");
   const categories = await fetchAPI("/categories");
  
+  const syllabusLinks = syllabusLinkss.reverse()
   return {
     props: { syllabusLinks, categories },
     revalidate: 1,
@@ -124,4 +140,4 @@ export async function getStaticProps() {
 }
 
 
-export default about
+export default Links

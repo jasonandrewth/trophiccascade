@@ -18,7 +18,7 @@ const Home = ({ articles, homepage}) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [articles, homepage] = await Promise.all([
+  const [articless, homepage] = await Promise.all([
     fetchAPI("/articles?status=published"),
     fetchAPI("/homepage"),
   ])
@@ -27,6 +27,7 @@ export async function getStaticProps() {
   // const articless = await fetch('https://trophic-cascade-backend.herokuapp.com/articles')
   // const homepager = await fetch('https://trophic-cascade-backend.herokuapp.com/articles')
   //const articless = response.json()
+  const articles = [...articless].reverse()
 
   return {
     props: { articles, homepage },
