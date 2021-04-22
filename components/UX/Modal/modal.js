@@ -60,10 +60,10 @@ const Modal = ({ setMenuState, menuState, theme, setTheme }) => {
           <Link href="/about">
             <a onClick={() => setMenuState(!menuState)}><span>Legal</span> </a>
           </Link>
-          <Link href="/syllabus">
+          <Link href="/cocoon">
             <a onClick={() => setMenuState(!menuState)}><span>Cocoon</span> </a>
           </Link>
-          <Link href="/about">
+          <Link href="/syllabus">
             <a onClick={() => setMenuState(!menuState)}><span>Syllabus</span> </a>
           </Link>
         </div>
