@@ -87,13 +87,12 @@ const Article = ({ article, randomOne }) => {
 };
 
 export async function getStaticPaths() {
-  const articles = await fetchAPI("/articles");
+  const articless = await fetchAPI("/articles");
+  const articles = [...articless].reverse()
 
   return {
     paths: articles.map((article) => ({
-      params: {
-        slug: article.slug,
-      },
+      params: { slug: article.slug }
     })),
     fallback: false,
   };
@@ -104,9 +103,10 @@ export async function getStaticProps({ params }) {
     `/articles?slug=${params.slug}&status=published`
   );
 
-  const articlesall = await fetchAPI("/articles");
+  const articless = await fetchAPI("/articles");
+  const articlesall = [...articless].reverse()
 
-  let newarticles = [...articlesall]
+  let newarticles = articlesall
 
   newarticles = newarticles.filter((currentChar) => {
 
