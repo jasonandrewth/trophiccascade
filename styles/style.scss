@@ -20,11 +20,14 @@
 
 html {
   background: $white;
+  min-height: -webkit-fill-available;
 }
 
 body {
   color: $red;
   overflow-x: hidden;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 .body-spook {
