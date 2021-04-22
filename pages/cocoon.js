@@ -31,8 +31,8 @@ const fadeInUp = {
 const about = () => {
 
   const seo = {
-    metaTitle: "About",
-    metaDescription: "About Trophic Cascade",
+    metaTitle: "Cocoon",
+    metaDescription: "Unfinished Ideas",
   };
 
   const wrapperClasses = [styles.aboutContainer, "bg-white dark:bg-black dark:text-white"]
@@ -44,8 +44,7 @@ const about = () => {
       <motion.div 
         variants={fadeInUp}
         className={styles.aboutContent}>
-        <p>unrequested occasional opinions on the feedback loops bewtween media, tech and culture</p>
-        <p>maintained by <a href="http://www.jason-andrew.com" target="_blank" style={{color: '#e70000'}}>me </a> but authorship sucks</p>
+        <h2>Potential ideas that might turn into essays one day, for now dormant and incubating.</h2>
       </motion.div>
     </motion.div>
     </>
