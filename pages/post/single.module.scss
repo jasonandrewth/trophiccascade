@@ -28,9 +28,18 @@
   }
 
   img {
-    margin: 32px auto;
+    margin: 32px auto 0 auto;
     max-width: 70%;
     text-align: center;
+  }
+  img + em {
+    display: block;
+    margin: auto;
+    line-height: 20px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 16px;
   }
 }
 
