@@ -2,6 +2,8 @@
   width: 100vw;
   min-height: 300px;
   border: 2px solid #e70000;
+  border-left: none;
+  border-right: none;
   //border-bottom: none;
   border-top: none; 
   display: flex;
@@ -66,6 +68,8 @@
     width: 100vw;
     min-height: auto;
     border: 2px solid #e70000;
+    border-left: none;
+    border-right: none;
     //border-bottom: none;
     border-top: none; 
     display: flex;

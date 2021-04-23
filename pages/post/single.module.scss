@@ -7,7 +7,7 @@
 
 .content {
   font-size: 24px;
-  line-height: 1.8rem;
+  line-height: 1.35;
   font-family: Fivo Sans Regular, sans-serif;
 
   h2 {
@@ -15,6 +15,10 @@
     margin-bottom: 1rem;
     color: inherit !important;
     font-style: italic;
+  }
+
+  p {
+    margin: 16px 0;
   }
 
   iframe {
