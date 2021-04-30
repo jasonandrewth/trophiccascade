@@ -2,7 +2,7 @@ import Link from "next/link";
 import { motion } from 'framer-motion'
 
 import styles from './Card.module.scss'
-//import Image from 'next/image'
+import Arrow from 'components/UX/arrow'
 
 
 const easing = [.6, -.05, .01, 0.99]
@@ -52,7 +52,7 @@ const Card = ({ article }) => {
           </div>
 
           <motion.div className={styles.Arrow} >
-            <p>{'>'}</p>
+            <Arrow/>
           </motion.div>
         </motion.div>
       </a>

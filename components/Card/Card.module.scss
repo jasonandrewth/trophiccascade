@@ -54,14 +54,26 @@
   border-left: 2px solid #e70000;
   transition: all 0.5s;
 
-  p {
-    font-size: 2rem;
+  //arrow
+  svg {
+    padding: 5.4rem;
+    fill:none;
+    stroke:#e70000;
+    stroke-miterlimit:10;
+    stroke-width:15px;
+    transition: stroke 0.5s;
   }
 }
+
+
 
 .Card:hover .Arrow {
   background-color: #e70000;
   color: #ffffff;
+
+  svg {
+    stroke: #ffffff;
+  }
 }
 
 @media (max-width: 600px) {
@@ -104,6 +116,11 @@
     //height: 300px;
     border-left: 2px solid #e70000;
     transition: all 0.5s;
+
+    //arrow
+  svg {
+    padding: 1.4rem;
+  }
   
     p {
       font-size: 2rem;

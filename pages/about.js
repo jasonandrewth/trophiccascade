@@ -41,11 +41,16 @@ const about = () => {
     <>
     <Seo seo={seo} />
     <motion.div className={wrapperClasses.join(' ')} initial='initial' animate='animate' exit={{ opacity: 0 }}>
-      <motion.div 
+      <motion.div
+        className={styles['about-section']}
         variants={fadeInUp}
-        className={styles.aboutContent}>
-        <p>unrequested occasional opinions on the feedback loops bewtween media, tech and culture</p>
-        <p>maintained by <a href="http://www.jason-andrew.com" target="_blank" style={{color: '#e70000'}}>me </a> but authorship sucks</p>
+      >
+        <p>unrequested occasional opinions on the feedback loops between media, tech and culture</p>
+        <br></br>
+        <p>for now the exteriorised brain of <a href="http://www.jason-andrew.com" target="_blank" style={{color: '#e70000'}}>jason</a> 
+        <br></br>
+        authorship sucks</p>
+        {/* <img src='/logo.svg' alt="Logo"/> */}
       </motion.div>
     </motion.div>
     </>

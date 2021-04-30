@@ -41,10 +41,11 @@ const about = () => {
     <>
     <Seo seo={seo} />
     <motion.div className={wrapperClasses.join(' ')} initial='initial' animate='animate' exit={{ opacity: 0 }}>
-      <motion.div 
+      <motion.div
+        className={styles['about-section']}
         variants={fadeInUp}
-        className={styles.aboutContent}>
-        <h2>Potential ideas that might turn into essays one day, for now dormant and incubating.</h2>
+      >
+        <p>Potential ideas that might turn into essays one day, for now dormant and incubating.</p>
       </motion.div>
     </motion.div>
     </>

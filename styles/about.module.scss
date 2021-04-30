@@ -3,29 +3,44 @@
 .aboutContainer {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
+  padding: 0 64px;
   top: 0;
   left: 0;
+
+  * {
+    text-transform: uppercase;
+    font-size: 46px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.1;
+
+    a {
+      text-decoration: none;
+      letter-spacing: 16px;
+      opacity: 0.2;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0;
+      }
+    }
+  }
 }
 
-.aboutContent {
-  padding: 128px;
-  border: 4px solid $red;
-  text-align: center;
-  font-family: Fivo Sans Regular, sans-serif;
-  line-height: 1.8rem;
+.about-section {
+  margin: auto;
 }
+
+
 
 @media(max-width: 600px) {
-  .aboutContent {
-  padding: 128px 32px;
-  margin: 0 16px;
-  border: 4px solid $red;
-  text-align: center;
-  font-family: Fivo Sans Regular, sans-serif;
-  line-height: 1.8rem;
-}
+  .aboutContainer {
+    padding: 0 16px;
+  
+    * {
+      text-transform: uppercase;
+      font-size: 32px;
+
+    }
+  }
 }
