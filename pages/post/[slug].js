@@ -87,8 +87,8 @@ const Article = ({ article, randomOne }) => {
 };
 
 export async function getStaticPaths() {
-  const articless = await fetchAPI("/articles");
-  const articles = [...articless].reverse()
+  const articles = await fetchAPI("/articles");
+  // const articles = [...articless].reverse()
 
   return {
     fallback: 'blocking',
