@@ -91,10 +91,10 @@ export async function getStaticPaths() {
   const articles = [...articless].reverse()
 
   return {
+    fallback: 'blocking',
     paths: articles.map((article) => ({
       params: { slug: article.slug }
     })),
-    fallback: false,
   };
 }
 
