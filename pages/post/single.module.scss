@@ -1,8 +1,16 @@
 .title {
   font-size: 3rem;
   font-family: Wremena Bold, sans-serif;
-  margin-bottom: 3rem;
   text-align: center;
+  padding-bottom: 16px;
+}
+
+.title-section {
+  margin-bottom: 3rem;
+
+  p {
+    color: #e70000;
+  }
 }
 
 .content {
@@ -53,7 +61,7 @@
   .title {
     font-size: 2rem;
     font-family: Wremena Bold, sans-serif;
-    margin-bottom: 2rem;
+    padding-bottom: 8px;
   }
 
   .content {

@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import Moment from "react-moment";
 import { fetchAPI } from "../../lib/api";
 // import Card from "components/Card/Card";
 import Vis from '../../components/WebGL/WebGL'
@@ -72,7 +73,12 @@ const Article = ({ article, randomOne }) => {
       </motion.div>
       <div className="uk-section singlecontent">
         <div className="uk-container uk-container-small text-black dark:text-white">
+          <section className={styles["title-section"]}>
           <h1 className={styles.title}>{article.title}</h1>
+          <p className="uk-margin-remove-top text-center">
+                <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+          </p>
+          </section>
           <section className={styles.content}>
             <ReactMarkdown source={article.content} escapeHtml={false} />
           </section>
