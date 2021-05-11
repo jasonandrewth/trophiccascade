@@ -76,7 +76,7 @@ const Article = ({ article, randomOne }) => {
           <section className={styles["title-section"]}>
           <h1 className={styles.title}>{article.title}</h1>
           <p className="uk-margin-remove-top text-center">
-                <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+                <Moment format="MMM Do YYYY">{article.publishedAt}</Moment>
           </p>
           </section>
           <section className={styles.content}>
