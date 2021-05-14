@@ -19,6 +19,8 @@ const Seo = ({ seo }) => {
 
   return (
     <Head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
       {fullSeo.metaTitle && (
         <>
           <title>{fullSeo.metaTitle}</title>
@@ -26,6 +28,7 @@ const Seo = ({ seo }) => {
           <meta name="twitter:title" content={fullSeo.metaTitle} />
         </>
       )}
+      <meta property="og:type" content="website" />
       {fullSeo.metaDescription && (
         <>
           <meta name="description" content={fullSeo.metaDescription} />
@@ -42,6 +45,7 @@ const Seo = ({ seo }) => {
       )}
       {fullSeo.article && <meta property="og:type" content="article" />}
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href="https://www.trophiccascade.net/" />
     </Head>
   );
 };
