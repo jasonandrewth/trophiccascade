@@ -32,7 +32,7 @@ const about = () => {
 
   const seo = {
     metaTitle: "About",
-    metaDescription: "About Trophic Cascade",
+    metaDescription: "Unrequested occasional opinions on the feedback loops between media, tech and culture",
   };
 
   const wrapperClasses = [styles.aboutContainer, "bg-white dark:bg-black dark:text-white"]
@@ -57,15 +57,6 @@ const about = () => {
   )
 }
 
-// export async function getStaticProps() {
-//   // Run API calls in parallel
-//   const about = await fetchAPI("/about-page");
- 
-//   return {
-//     props: { about },
-//     revalidate: 1,
-//   };
-// }
 
 
 export default about
