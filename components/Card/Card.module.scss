@@ -56,7 +56,7 @@
 
   //arrow
   svg {
-    padding: 5.4rem;
+    max-width: 20px;
     fill:none;
     stroke:#e70000;
     stroke-miterlimit:10;
@@ -116,10 +116,14 @@
     //height: 300px;
     border-left: 2px solid #e70000;
     transition: all 0.5s;
+  }
+}
 
-    //arrow
-  svg {
-    padding: 1rem;
-  }
-  }
+@media screen and (min-width: 1200px) {
+  
+  .Arrow {
+     svg {
+      max-width: 30px;
+    }
+}
 }
