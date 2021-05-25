@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 import App from "next/app";
 import { AnimatePresence } from "framer-motion";
 import Head from "next/head";
@@ -15,16 +15,16 @@ export const GlobalContext = createContext({});
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
 
-  // useEffect( () => { 
-  //   document.querySelector("body").classList.add("bg-white dark:bg-black dark:text-white") 
+  // useEffect( () => {
+  //   document.querySelector("body").classList.add("bg-white dark:bg-black dark:text-white")
   // } );
 
   // console.log(global)
   return (
     <>
-    <Head>
+      <Head>
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
-        <link href="/fonts/fontstyle.css" rel="stylesheet"/>
+        <link href="/fonts/fontstyle.css" rel="stylesheet" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Staatliches"
@@ -37,15 +37,15 @@ const MyApp = ({ Component, pageProps }) => {
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js" />
       </Head>
-    <AnimatePresence exitBeforeEnter>
-      <GlobalContext.Provider value={global}>
-        <ThemeProvider attribute="class">
-          <Layout>
-          <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
-      </GlobalContext.Provider>
-    </AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
+        <GlobalContext.Provider value={global}>
+          <ThemeProvider attribute="class">
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ThemeProvider>
+        </GlobalContext.Provider>
+      </AnimatePresence>
     </>
   );
 };

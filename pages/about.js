@@ -2,12 +2,11 @@
 // import { fetchAPI } from "../lib/api";
 import Seo from "../components/seo";
 
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 //import { motion } from "framer-motion";
 
-import styles from '../styles/about.module.scss'
-
+import styles from "../styles/about.module.scss";
 
 let easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -16,47 +15,62 @@ const fadeInUp = {
   initial: {
     y: 60,
     opacity: 0,
-    transition: { duration: 0.4, ease: easing }
+    transition: { duration: 0.4, ease: easing },
   },
   animate: {
     y: 0,
     opacity: 1,
     transition: {
       duration: 0.4,
-      ease: easing
-    }
-  }
+      ease: easing,
+    },
+  },
 };
 
 const about = () => {
-
   const seo = {
     metaTitle: "About",
-    metaDescription: "Unrequested occasional opinions on the feedback loops between media, tech and culture",
+    metaDescription:
+      "Unrequested occasional opinions on the feedback loops between media, tech and culture",
   };
 
-  const wrapperClasses = [styles.aboutContainer, "bg-white dark:bg-black dark:text-white"]
+  const wrapperClasses = [
+    styles.aboutContainer,
+    "bg-white dark:bg-black dark:text-white",
+  ];
 
   return (
     <>
-    <Seo seo={seo} />
-    <motion.div className={wrapperClasses.join(' ')} initial='initial' animate='animate' exit={{ opacity: 0 }}>
+      <Seo seo={seo} />
       <motion.div
-        className={styles['about-section']}
-        variants={fadeInUp}
+        className={wrapperClasses.join(" ")}
+        initial="initial"
+        animate="animate"
+        exit={{ opacity: 0 }}
       >
-        <p>unrequested occasional opinions on the feedback loops between media, tech and culture</p>
-        <br></br>
-        <p>for now the exteriorised brain of <a href="http://www.jason-andrew.com" target="_blank" style={{color: '#e70000'}}>jason</a> 
-        <br></br>
-        authorship sucks</p>
-        {/* <img src='/logo.svg' alt="Logo"/> */}
+        <motion.div className={styles["about-section"]} variants={fadeInUp}>
+          <p>
+            unrequested occasional opinions on the feedback loops between media,
+            tech and culture
+          </p>
+          <br></br>
+          <p>
+            for now the exteriorised brain of{" "}
+            <a
+              href="http://www.jason-andrew.com"
+              target="_blank"
+              style={{ color: "#e70000" }}
+            >
+              jason
+            </a>
+            <br></br>
+            authorship sucks
+          </p>
+          {/* <img src='/logo.svg' alt="Logo"/> */}
+        </motion.div>
       </motion.div>
-    </motion.div>
     </>
-  )
-}
+  );
+};
 
-
-
-export default about
+export default about;

@@ -17,15 +17,23 @@
   }
 }
 
+.h2.active {
+  color: $red;
+}
+
 .categories {
   display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+  max-width: 100vw;
+  flex-wrap: wrap;
   font-size: 1.5rem;
   padding-bottom: 32px;
   
   .h2 {
     cursor: pointer;
     padding: 0 0 0 16px;
-    color: inherit;
+    // color: inherit;
     font-family: Fivo Sans Bold, sans-serif;
 
     .active {
@@ -59,6 +67,7 @@
   }
 
   .categories {
+    max-width: 100vw;
     font-size: 1.2rem;
     .h2 {
       font-size: 1.2rem;

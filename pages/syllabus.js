@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 
 import { fetchAPI } from "lib/api";
 import Seo from "../components/seo";
 
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 import SyllabusLinks from "../components/SyllabusLinks/syllabusLinks";
 
-import styles from '../styles/syllabus.module.scss'
+import styles from "../styles/syllabus.module.scss";
 
 //custom easing
 let easing = [0.6, -0.05, 0.01, 0.99];
@@ -17,127 +17,144 @@ const fadeInUp = {
   initial: {
     y: 60,
     opacity: 0,
-    transition: { duration: 0.4, ease: easing }
+    transition: { duration: 0.4, ease: easing },
   },
   animate: {
     y: 0,
     opacity: 1,
     transition: {
       duration: 0.4,
-      ease: easing
-    }
-  }
+      ease: easing,
+    },
+  },
 };
 
 const Links = ({ syllabusLinks, categories }) => {
-
   const [isMounted, setIsMounted] = useState(false);
   const [data, setData] = useState([]);
-  const [filterType, setFilterType] = useState('All');
+  const [filterType, setFilterType] = useState("All");
 
   const types = {
-      All: `All`,
-      Politics: 'Politics',
-      Technology: 'Technology',
-      Culture: 'Culture'
-    };
+    All: `All`,
+    Politics: "Politics",
+    Technology: "Technology",
+    Culture: "Culture",
+  };
+
+  //MAYBE LATER
+
+  // const FILTER_MAP = {
+  //   All: () => true,
+  //   Politics: (link) => link.Category === "Politics",
+  //   Technology: (link) => link.Category === "Technology",
+  //   Culture: (link) => link.Category === "Culture",
+  // };
+
+  // const FILTER_NAMES = Object.keys(FILTER_MAP);
 
   const seo = {
-    metaTitle: 'Syllabus',
-    metaDescription: 'A Syllabus of Articles I enjoyed reading and I think are somehow relevant and/or interesting',
+    metaTitle: "Syllabus",
+    metaDescription:
+      "A Syllabus of Articles I enjoyed reading and I think are somehow relevant and/or interesting",
   };
 
   useEffect(() => {
-
-    const filterArray = type => {
-
-    if (filterType === type) {
-      // console.log(type)
-    }
-
-    const sortProperty = types[type];
-    const sorted = [...syllabusLinks].filter(link => {
-
-      if (sortProperty === 'All') {
-        return syllabusLinks
+    const filterArray = (type) => {
+      if (filterType === type) {
+        // console.log(type)
       }
-      else {
-        return link.Category === sortProperty
-      }
-    });
-    // console.log(sorted);
-    setData(sorted);
 
+      const sortProperty = types[type];
+      const sorted = [...syllabusLinks].filter((link) => {
+        if (sortProperty === "All") {
+          return syllabusLinks;
+        } else {
+          return link.Category === sortProperty;
+        }
+      });
+      // console.log(sorted);
+      setData(sorted);
     };
-    
 
-    filterArray(filterType)
+    filterArray(filterType);
+  }, [filterType]);
 
-  }, [filterType])
-
-  let tagStyles = [styles.h2]
+  let tagStyles = [styles.h2];
 
   const clickHandler = (e) => {
-    setFilterType(e.target.dataset.cat)
+    setFilterType(e.target.dataset.cat);
 
     //Very un-react of me
-    const actives = document.querySelectorAll('.active')
-    actives.forEach(active => {
-      active.classList.remove('active')
-    })
-    e.target.classList.add('active')
+    const actives = document.querySelectorAll(".active");
+    actives.forEach((active) => {
+      // active.classList.remove("active");
+    });
+    // e.target.classList.add("active");
     // console.log(e.target)
-  }
+  };
 
-
-  const wrapperClasses = [styles.container, "bg-white dark:bg-black dark:text-white"]
+  const wrapperClasses = [
+    styles.container,
+    "bg-white dark:bg-black dark:text-white",
+  ];
 
   return (
     <>
-    <Seo seo={seo} />
-    <motion.div className={wrapperClasses.join(' ')} initial='initial' animate='animate' exit={{ opacity: 0 }}>
-      <motion.div variants={fadeInUp} className={'content'}>
-        
-        <h1 className={styles.title}>
-        A Collection of Articles I enjoyed reading and I think are somehow relevant and/or interesting.
-        </h1>
+      <Seo seo={seo} />
+      <motion.div
+        className={wrapperClasses.join(" ")}
+        initial="initial"
+        animate="animate"
+        exit={{ opacity: 0 }}
+      >
+        <motion.div variants={fadeInUp} className={"content"}>
+          <h1 className={styles.title}>
+            A Collection of Articles I enjoyed reading and I think are somehow
+            relevant and/or interesting.
+          </h1>
 
-        <div className={styles.categories}>
-          {categories.map((category, idx) => {
-            return (
-              <h2 
-                key={idx}
-                className={tagStyles.join(' ')}
-                data-cat={category.category}
-                onClick={e => clickHandler(e)}
-              >
-                {category.category}
-              </h2>
-            );
-          })}
-        </div>
-        
-        <SyllabusLinks
-          links={data}
-        >
-        </SyllabusLinks>
+          <div className={styles.categories}>
+            {categories.map((category, idx) => {
+              if (category.category === filterType) {
+                console.log("equals");
+                // tagStyles.push(styles.active);
+                console.log(tagStyles);
+              }
+              return (
+                <h2
+                  key={idx}
+                  className={
+                    //checking of the category is the same as the filter
+                    category.category === filterType
+                      ? styles.h2 + " active"
+                      : styles.h2
+                  }
+                  data-cat={category.category}
+                  onClick={(e) => clickHandler(e)}
+                >
+                  {category.category}
+                </h2>
+              );
+            })}
+          </div>
+
+          <SyllabusLinks links={data}></SyllabusLinks>
+        </motion.div>
       </motion.div>
-    </motion.div>
     </>
-  )
-}
+  );
+};
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const syllabusLinkss = await fetchAPI("/syllabus-links");
+  const syllabusLinks = await fetchAPI("/syllabus-links");
   const categories = await fetchAPI("/categories");
- 
-  const syllabusLinks = syllabusLinkss.reverse()
+
+  // const syllabusLinks = syllabusLinks.reverse();
   return {
     props: { syllabusLinks, categories },
     revalidate: 1,
   };
 }
 
-
-export default Links
+export default Links;
