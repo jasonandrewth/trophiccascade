@@ -85,7 +85,7 @@ const Article = ({ article, randomOne }) => {
 };
 
 export async function getStaticPaths() {
-  const articles = await fetchAPI("/articles");
+  const articles = await fetchAPI("/articles?status=published");
   // const articles = [...articless].reverse()
 
   return {
@@ -101,12 +101,12 @@ export async function getStaticProps({ params }) {
     `/articles?slug=${params.slug}&status=published`
   );
 
-  const articless = await fetchAPI("/articles");
+  const articless = await fetchAPI("/articles?status=published");
   const articlesall = [...articless].reverse();
 
-  let newarticles = articlesall;
+  // let newarticles = articlesall;
 
-  newarticles = newarticles.filter((currentChar) => {
+  let newarticles = articlesall.filter((currentChar) => {
     return currentChar.slug !== params.slug;
   });
 
