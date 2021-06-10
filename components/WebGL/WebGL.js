@@ -1,40 +1,39 @@
-import { useRef, useState, useEffect } from 'react'
-import * as THREE from 'three';
+import { useRef, useState, useEffect } from "react";
+import * as THREE from "three";
 import Link from "next/link";
-import gsap from 'gsap';
+import gsap from "gsap";
 
 import { getStrapiMedia } from "lib/media";
 
 // import search from '../../public/softskillscover2.png'
 
 const Vis = ({ article }) => {
-
-  const mount = useRef(null)
-  const [isAnimating, setAnimating] = useState(true)
-  const controls = useRef(null)
-  const textureLoader = new THREE.TextureLoader()
+  const mount = useRef(null);
+  const [isAnimating, setAnimating] = useState(true);
+  const controls = useRef(null);
+  const textureLoader = new THREE.TextureLoader();
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
-  
+
   const imageUrl = getStrapiMedia(article.image);
 
-
   useEffect(() => {
-    let width = mount.current.clientWidth
-    let height = mount.current.clientHeight
-    
-    let frameId
+    const currMount = mount.current;
+    let width = currMount.clientWidth;
+    let height = currMount.clientHeight;
 
-    const textureLoader = new THREE.TextureLoader()
-    const articleTex = textureLoader.load('/softskillscover2.png')
-    const displacementTex = textureLoader.load('/displacement.jpg')
+    let frameId;
+
+    const textureLoader = new THREE.TextureLoader();
+    const articleTex = textureLoader.load("/softskillscover2.png");
+    const displacementTex = textureLoader.load("/displacement.jpg");
     // console.log(imageUrl)
     //console.log(article.image)
 
-    const scene = new THREE.Scene()
-    const renderer = new THREE.WebGLRenderer({ antialias: true })
+    const scene = new THREE.Scene();
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
     const geometry = new THREE.PlaneBufferGeometry(30, 10);
-    const clock = new THREE.Clock;
+    const clock = new THREE.Clock();
 
     //Material
     const material = new THREE.ShaderMaterial({
@@ -222,8 +221,8 @@ const Vis = ({ article }) => {
       // uResolution for responsive, uTime will be use by THREE.Clock
       uniforms: {
         uTime: { value: 0.0 },
-        uImage: {value: textureLoader.load(imageUrl)},
-        uImage2: {value: articleTex},
+        uImage: { value: textureLoader.load(imageUrl) },
+        uImage2: { value: articleTex },
         progress: { type: "f", value: 0 },
         border: { type: "f", value: 0 },
         intensity: { type: "f", value: 0 },
@@ -233,20 +232,20 @@ const Vis = ({ article }) => {
         swipe: { type: "f", value: 0 },
         width: { type: "f", value: 0 },
         radius: { type: "f", value: 0 },
-        displacement: {value: displacementTex},
-        hover: {value: new THREE.Vector2(0.5, 0.5)},
+        displacement: { value: displacementTex },
+        hover: { value: new THREE.Vector2(0.5, 0.5) },
         resolution: { type: "v4", value: new THREE.Vector4() },
         //resolution: { value: { x: window.innerWidth, y: window.innerHeight } },
         uColor: { value: new THREE.Color(0xffffff) },
-        hoverState: {value: 0}
+        hoverState: { value: 0 },
       },
-      wireframe: false
+      wireframe: false,
     });
 
-    const material2 = new THREE.MeshBasicMaterial({color: 0xff0000})
+    const material2 = new THREE.MeshBasicMaterial({ color: 0xff0000 });
 
     //Mesh
-    const plane = new THREE.Mesh(geometry, material)
+    const plane = new THREE.Mesh(geometry, material);
     plane.position.set(0, 0, 0);
 
     //Light
@@ -267,37 +266,38 @@ const Vis = ({ article }) => {
     camera.lookAt(plane.position);
 
     //Add to scene
-    scene.add(plane)
+    scene.add(plane);
 
     //Renderer
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setClearColor(0xffffff, 1);
-    renderer.setSize(width, height)
+    renderer.setSize(width, height);
 
     const renderScene = () => {
-      renderer.render(scene, camera)
-    }
+      renderer.render(scene, camera);
+    };
 
     const handleResize = () => {
-      width = window.innerWidth
-      height = window.innerHeight * 0.5
+      width = window.innerWidth;
+      height = window.innerHeight * 0.5;
 
       // width = mount.current.clientWidth
       // height = mount.current.clientHeight
-      renderer.setSize(width, height)
-      camera.aspect = width / height
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
       // renderer.setSize(window.innerWidth, height)
       // camera.aspect = window.innerWidth / height
 
       // image cover
-      const imageAspect = article.image.height/article.image.width
-      let a1; let a2;
-      if (height/width > imageAspect) {
-        a1 = (width/height) * imageAspect
+      const imageAspect = article.image.height / article.image.width;
+      let a1;
+      let a2;
+      if (height / width > imageAspect) {
+        a1 = (width / height) * imageAspect;
         a2 = 1;
       } else {
         a1 = 1;
-        a2 = (height/width) / imageAspect;
+        a2 = height / width / imageAspect;
       }
 
       material.uniforms.resolution.value.x = width;
@@ -305,94 +305,90 @@ const Vis = ({ article }) => {
       material.uniforms.resolution.value.z = a1;
       material.uniforms.resolution.value.w = a2;
 
-      const dist  = camera.position.z;
+      const dist = camera.position.z;
       const heightTool = 1;
       //camera.fov = 2*(180/Math.PI)*Math.atan(heightTool/(2*dist));
 
       plane.scale.x = camera.aspect;
       plane.scale.y = camera.aspect;
 
-      camera.updateProjectionMatrix()
-      renderScene()
-    }
+      camera.updateProjectionMatrix();
+      renderScene();
+    };
 
     //Mouse Event
-    mount.current.addEventListener('mousemove', (event) => {
-      mouse.x = ( event.clientX / width ) * 2 - 1
-	    mouse.y = - ( event.clientY / height ) * 2 + 1
-      
-      raycaster.setFromCamera(mouse, camera)
-      // calculate objects intersecting the picking ray
-	    const intersects = raycaster.intersectObjects( scene.children )
+    currMount.addEventListener(
+      "mousemove",
+      (event) => {
+        mouse.x = (event.clientX / width) * 2 - 1;
+        mouse.y = -(event.clientY / height) * 2 + 1;
 
-      if (intersects.length > 0) {
-        material.uniforms.hover.value.x = mouse.x
-        material.uniforms.hover.value.y = mouse.y
-      }
-    }, false)
+        raycaster.setFromCamera(mouse, camera);
+        // calculate objects intersecting the picking ray
+        const intersects = raycaster.intersectObjects(scene.children);
 
-    mount.current.addEventListener('mouseenter', () => {
-      
-      gsap.to(material.uniforms.hoverState,{
-        duration:2,
-        value:1,
-        ease: "power3.out"
-      })
-    })
+        if (intersects.length > 0) {
+          material.uniforms.hover.value.x = mouse.x;
+          material.uniforms.hover.value.y = mouse.y;
+        }
+      },
+      false
+    );
 
-    mount.current.addEventListener('mouseout', (event) => {
-      
-      gsap.to(material.uniforms.hoverState,{
-        duration:2,
-        value:0,
-        ease: "power3.out"
-      })
-    })
+    currMount.addEventListener("mouseenter", () => {
+      gsap.to(material.uniforms.hoverState, {
+        duration: 2,
+        value: 1,
+        ease: "power3.out",
+      });
+    });
 
+    currMount.addEventListener("mouseout", (event) => {
+      gsap.to(material.uniforms.hoverState, {
+        duration: 2,
+        value: 0,
+        ease: "power3.out",
+      });
+    });
 
-    
     const animate = () => {
       // cube.rotation.x += 0.01
       // cube.rotation.y += 0.01
 
       material.uniforms.uTime.value = clock.getElapsedTime();
-      renderScene()
-      frameId = window.requestAnimationFrame(animate)
-    }
+      renderScene();
+      frameId = window.requestAnimationFrame(animate);
+    };
 
     const start = () => {
       if (!frameId) {
-        frameId = requestAnimationFrame(animate)
+        frameId = requestAnimationFrame(animate);
       }
-    }
+    };
 
     const stop = () => {
-      cancelAnimationFrame(frameId)
-      frameId = null
-    }
+      cancelAnimationFrame(frameId);
+      frameId = null;
+    };
 
     //SETUP
-    mount.current.appendChild(renderer.domElement)
-    window.addEventListener('resize', handleResize)
-    start()
-    handleResize()
+    currMount.appendChild(renderer.domElement);
+    window.addEventListener("resize", handleResize);
+    start();
+    handleResize();
     // console.log(mount.current)
-    
-    return () => {
-      stop()
-      window.removeEventListener('resize', handleResize)
-      if (mount.current) {
-        mount.current.removeChild(renderer.domElement)
-      }
-      
-      console.log(mount)
-      
 
-      scene.remove(plane)
-      geometry.dispose()
-      material.dispose()
-    }
-  }, [])
+    return () => {
+      stop();
+      window.removeEventListener("resize", handleResize);
+
+      currMount.removeChild(renderer.domElement);
+
+      scene.remove(plane);
+      geometry.dispose();
+      material.dispose();
+    };
+  }, []);
 
   // useEffect(() => {
   //   if (isAnimating) {
@@ -402,23 +398,21 @@ const Vis = ({ article }) => {
   //   }
   // }, [isAnimating])
 
-
-  
   return (
     <Link as={`/post/${article.slug}`} href="/post/[id]">
-    <a className="testlink">
-    <div 
-      className="vis" 
-      ref={mount} 
-      onClick={() => setAnimating(!isAnimating)}
-      // onMouseEnter={hoverStateOn} 
-      // onMouseLeave={hoverStateOff}
-    >
-      <h2 className="vistitle" >{article.title}</h2>
-    </div>
-    </a>
+      <a className="testlink">
+        <div
+          className="vis"
+          ref={mount}
+          onClick={() => setAnimating(!isAnimating)}
+          // onMouseEnter={hoverStateOn}
+          // onMouseLeave={hoverStateOff}
+        >
+          <h2 className="vistitle">{article.title}</h2>
+        </div>
+      </a>
     </Link>
-  ) 
-}
+  );
+};
 
-export default Vis
+export default Vis;
